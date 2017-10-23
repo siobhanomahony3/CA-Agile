@@ -25,7 +25,24 @@ router.findAll = function(req, res) {
     });
 }
 
+router.addRecipe = function(req, res) {
 
+    var recipes = new recipe();
+
+    recipes.recipename = req.body.recipename;
+    recipes.recipetype = req.body.recipetype;
+    recipes.ingredients = req.body.ingredients;
+    recipes.rating = req.body.rating;
+
+    console.log('Adding Recipe: ' + JSON.stringify(recipes));
+
+    recipes.save(function(err) {
+        if (err)
+            res.send(err);
+
+        res.json({ message: 'Recipe Added!', data: recipes });
+    });
+}
 
 
 module.exports = router;
