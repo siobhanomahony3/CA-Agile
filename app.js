@@ -29,6 +29,7 @@ app.use('/users', users);
 
 
 app.get('/recipe', recipe.findAll);
+app.get('/recipe/:id', recipe.findOne);
 app.post('/recipe', recipe.addRecipe);
 
 

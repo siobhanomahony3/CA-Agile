@@ -25,6 +25,29 @@ router.findAll = function(req, res) {
     });
 }
 
+
+router.findOne = function(req, res) {
+
+    recipe.find({ "_id" : req.params.id },function(err, recipes) {
+        if (err)
+            res.json({ message: 'Recipe NOT Found!', errmsg : err } );
+        else
+            res.json(recipes);
+    });
+}
+
+function getByValue(arr,id)
+{
+    var result;
+    result= arr.filter(function (o) {
+        return o.id==id;
+    });
+
+    return result ? result[0] : null;
+
+
+}
+
 router.addRecipe = function(req, res) {
 
     var recipes = new recipe();
