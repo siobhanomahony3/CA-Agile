@@ -28,7 +28,7 @@ app.use('/', index);
 app.use('/users', users);
 
 
-
+app.get('/recipe', recipe.findAll);
 
 
 

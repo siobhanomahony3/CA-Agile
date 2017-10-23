@@ -16,6 +16,14 @@ db.once('open', function () {
     console.log('connected to database');
 });
 
+router.findAll = function(req, res) {
+    recipe.find(function(err, recipes) {
+        if (err)
+            res.send(err);
+
+        res.json(recipes);
+    });
+}
 
 
 
