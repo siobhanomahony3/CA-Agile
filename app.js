@@ -32,6 +32,7 @@ app.get('/recipe', recipe.findAll);
 app.get('/recipe/:id', recipe.findOne);
 app.post('/recipe', recipe.addRecipe);
 app.delete('/recipe/:id', recipe.deleteRecipe);
+app.put('/recipe/:id/rating', recipe.updateRecipe);
 
 
 

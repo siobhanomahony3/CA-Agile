@@ -78,4 +78,21 @@ router.deleteRecipe = function(req, res) {
     });
 }
 
+router.updateRecipe = function(req, res) {
+
+    recipe.findById(req.params.id, function(err,recipes) {
+        if (err)
+            res.send(err);
+        else {
+            recipes.rating = req.body.rating;
+            recipes.save(function (err) {
+                if (err)
+                    res.send(err);
+                else
+                    res.json({ message: 'Rating Updated!', data: recipes });
+            });
+        }
+    });
+}
+
 module.exports = router;
