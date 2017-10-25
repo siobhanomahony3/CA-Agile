@@ -68,4 +68,14 @@ router.addRecipe = function(req, res) {
 }
 
 
+router.deleteRecipe = function(req, res) {
+
+    recipe.findByIdAndRemove(req.params.id, function(err) {
+        if (err)
+            res.send(err);
+        else
+            res.json({ message: 'Recipe Deleted!'});
+    });
+}
+
 module.exports = router;
