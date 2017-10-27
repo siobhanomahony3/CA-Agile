@@ -15,6 +15,16 @@ router.findAllUsers = function(req, res) {
     });
 }
 
+router.findOneUser = function(req, res) {
+
+    user.find({ "_id" : req.params.id },function(err, user1) {
+        if (err)
+            res.json({ message: 'User NOT Found!', errmsg : err } );
+        else
+            res.json(user1);
+    });
+}
+
 
 
 

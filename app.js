@@ -36,6 +36,8 @@ app.delete('/recipe/:id', recipe.deleteRecipe);
 app.put('/recipe/:id/rating', recipe.updateRecipe);
 
 app.get('/user', user.findAllUsers);
+app.get('/user/:id', user.findOneUser);
+
 
 //app.put('/recipe/:id/ratings', recipe.updateRecipe1);
 // catch 404 and forward to error handler
