@@ -56,6 +56,23 @@ router.addUser = function(req, res) {
     });
 }
 
+router.updateUser = function(req, res) {
+
+    user.findById(req.params.id, function(err,user1) {
+        if (err)
+            res.send(err);
+        else {
+            user1.username = req.body.username;
+            user1.save(function (err) {
+                if (err)
+                    res.send(err);
+                else
+                    res.json({ message: 'Username Updated!', data: user1 });
+            });
+        }
+    });
+}
+
 
 
 
