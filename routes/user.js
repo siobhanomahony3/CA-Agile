@@ -25,6 +25,37 @@ router.findOneUser = function(req, res) {
     });
 }
 
+function getByValue(arr,id)
+{
+    var result;
+    result= arr.filter(function (o) {
+        return o.id==id;
+    });
+
+    return result ? result[0] : null;
+
+
+}
+
+router.addUser = function(req, res) {
+
+    var user1 = new user();
+
+    user1.firstname = req.body.firstname;
+    user1.lastname = req.body.lastname;
+    user1.username = req.body.username;
+    user1.email = req.body.email;
+
+    console.log('Adding User: ' + JSON.stringify(user1));
+
+    user1.save(function(err) {
+        if (err)
+            res.send(err);
+
+        res.json({ message: 'User Added!', data: user1 });
+    });
+}
+
 
 
 
