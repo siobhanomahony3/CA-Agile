@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var recipe = require("./routes/recipe");
+var user = require("./routes/user");
 
 
 var app = express();
@@ -34,7 +35,7 @@ app.post('/recipe', recipe.addRecipe);
 app.delete('/recipe/:id', recipe.deleteRecipe);
 app.put('/recipe/:id/rating', recipe.updateRecipe);
 
-
+app.get('/user', user.findAllUsers);
 
 //app.put('/recipe/:id/ratings', recipe.updateRecipe1);
 // catch 404 and forward to error handler
