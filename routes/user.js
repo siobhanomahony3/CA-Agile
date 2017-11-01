@@ -58,7 +58,7 @@ router.addUser = function(req, res) {
 
 router.updateUser = function(req, res) {
 
-    user.findById(req.params.id, function(err,user1) {
+    user.findById(req.params.id, function (err, user1) {
         if (err)
             res.send(err);
         else {
@@ -67,17 +67,23 @@ router.updateUser = function(req, res) {
                 if (err)
                     res.send(err);
                 else
-                    res.json({ message: 'Username Updated!', data: user1 });
+                    res.json({message: 'Username Updated!', data: user1});
             });
         }
     });
 }
 
+    router.deleteUser = function(req, res) {
+
+        user.findByIdAndRemove(req.params.id, function(err) {
+            if (err)
+                res.send(err);
+            else
+                res.json({ message: 'User Deleted!'});
+        });
+    }
 
 
 
 
-
-
-
-module.exports = router;
+    module.exports = router;

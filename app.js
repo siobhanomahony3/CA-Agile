@@ -38,6 +38,7 @@ app.put('/recipe/:id/rating', recipe.updateRecipe);
 app.get('/user', user.findAllUsers);
 app.get('/user/:id', user.findOneUser);
 app.post('/user', user.addUser);
+app.delete('/user/:id', user.deleteUser);
 app.put('/user/:id/username', user.updateUser);
 
 
