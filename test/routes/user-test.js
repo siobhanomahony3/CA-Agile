@@ -21,5 +21,22 @@ describe('User', function (){
                 });
         });
     });
-
+    describe('POST /user', function () {
+        it('should return add user to the collection', function(done) {
+            var user = {
+                firstname: 'Ciara' ,
+                lastname: 'Murphy',
+                username: 'cmurphy4',
+                email: 'ciaram@hotmail.com'
+            };
+            chai.request(server)
+                .post('/user')
+                .send(user)
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('User Added!' ) ;
+                    done();
+                });
+        });
+    });
 });

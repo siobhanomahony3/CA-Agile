@@ -14,7 +14,7 @@ describe('Recipe', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(16);
+                    expect(res.body.length).to.equal(20);
                     done();
                 });
         });
