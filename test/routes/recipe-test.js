@@ -14,7 +14,7 @@ describe('Recipe', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(11);
+                    expect(res.body.length).to.equal(16);
                     done();
                 });
         });
@@ -49,6 +49,26 @@ describe('Recipe', function (){
                 });
         });
     });
+    describe(' /DELETE/recipe/:id', function ()  {
+        it('should delete a object from recipe with given id', function(done) {
+            beforeEach(function(){
+                while(recipe.length > 0) {
+                    recipe.pop();
+                }
+                recipe.push(
+                    {id: '59ff8ac680cbf201ed59bb3d', recipename: 'Steak', recipetype: 'American', ingredients: 'Beef', rating:3}
+                );
 
+            });
+            chai.request(server)
+                .delete('/recipe/59ff8ac680cbf201ed59bb3d')
+                .end(function(err, res){
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.be.a('array');
+                    expect(res.body.length).to.equal(1);
+                });
+            done();
+        });
+    });
 
 });
