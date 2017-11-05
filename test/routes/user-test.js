@@ -16,7 +16,7 @@ describe('User', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(2);
+                    expect(res.body.length).to.equal(4);
                     done();
                 });
         });
@@ -35,6 +35,19 @@ describe('User', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.have.property('message').equal('User Added!' ) ;
+                    done();
+                });
+        });
+    });
+
+    describe('GET /user/id', function () {
+        it('should return one user from the collection', function(done) {
+            chai.request(server)
+                .get('/user/59ff7506428bec05702d67c9')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.be.a('array');
+                    expect(res.body.length).to.equal(1);
                     done();
                 });
         });
