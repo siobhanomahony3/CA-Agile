@@ -18,7 +18,20 @@ describe('Recipe', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(2);
+                    expect(res.body.length).to.equal(7);
+                    done();
+                });
+        });
+    });
+
+    describe('GET /recipe/id', function () {
+        it('should return a recipe from the collection', function(done) {
+            chai.request(server)
+                .get('/recipe/59fa2697af2318fecc2a604b')
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.be.a('array');
+                    expect(res.body.length).to.equal(1);
                     done();
                 });
         });
