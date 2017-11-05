@@ -16,7 +16,7 @@ describe('User', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(4);
+                    expect(res.body.length).to.equal(5);
                     done();
                 });
         });
@@ -50,6 +50,28 @@ describe('User', function (){
                     expect(res.body.length).to.equal(1);
                     done();
                 });
+        });
+    });
+
+    describe(' /DELETE/user/:id', function ()  {
+        it('should delete a object from user with given id', function(done) {
+            beforeEach(function(){
+                while(user.length > 0) {
+                    user.pop();
+                }
+                user.push(
+                    {id: '59ff9bb47d67aa02c932e998', firstname: 'Ciara', lastname: 'Murphy', username: 'cmurphy4', email:'ciaram@hotmail'}
+                );
+
+            });
+            chai.request(server)
+                .delete('/user/59ff9bb47d67aa02c932e998')
+                .end(function(err, res){
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.be.a('array');
+                    expect(res.body.length).to.equal(1);
+                });
+            done();
         });
     });
 });
