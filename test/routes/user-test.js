@@ -16,7 +16,7 @@ describe('User', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(5);
+                    expect(res.body.length).to.equal(35);
                     done();
                 });
         });
@@ -60,12 +60,12 @@ describe('User', function (){
                     user.pop();
                 }
                 user.push(
-                    {id: '59ff9bb47d67aa02c932e998', firstname: 'Ciara', lastname: 'Murphy', username: 'cmurphy4', email:'ciaram@hotmail'}
+                    {id: '59ffa0633cdeeb033669d2db', firstname: 'Ciara', lastname: 'Murphy', username: 'cmurphy4', email:'ciaram@hotmail'}
                 );
 
             });
             chai.request(server)
-                .delete('/user/59ff9bb47d67aa02c932e998')
+                .delete('/user/59ffa0633cdeeb033669d2db')
                 .end(function(err, res){
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
@@ -74,4 +74,22 @@ describe('User', function (){
             done();
         });
     });
+
+
+    describe('PUT /user/id/username', function () {
+        it('should update the user in the collection', function(done) {
+            var user = {
+                username: 'cmurphy45'
+            };
+            chai.request(server)
+                .put('/user/5a001ba3f26d7403cd80a804/username')
+                .send(user)
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Username Updated!' ) ;
+                    done();
+                });
+        });
+    });
+
 });
