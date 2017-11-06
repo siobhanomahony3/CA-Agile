@@ -53,25 +53,17 @@ describe('User', function (){
         });
     });
 
-    describe(' /DELETE/user/:id', function ()  {
-        it('should delete a object from user with given id', function(done) {
-            beforeEach(function(){
-                while(user.length > 0) {
-                    user.pop();
-                }
-                user.push(
-                    {id: '59ffa0633cdeeb033669d2db', firstname: 'Ciara', lastname: 'Murphy', username: 'cmurphy4', email:'ciaram@hotmail'}
-                );
+    describe('DELETE /user/id', function () {
+        it('should delete the user from the collection', function(done) {
 
-            });
             chai.request(server)
-                .delete('/user/59ffa0633cdeeb033669d2db')
-                .end(function(err, res){
+                .delete('/user/5a002a9b95cc1f044f6d1e2d')
+                .send(user)
+                .end(function(err, res) {
                     expect(res).to.have.status(200);
-                    expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(1);
+                    expect(res.body).to.have.property('message').equal('User Deleted!' ) ;
+                    done();
                 });
-            done();
         });
     });
 
