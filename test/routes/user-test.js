@@ -2,11 +2,69 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 var server = require('../../bin/www');
 var expect = chai.expect;
+var user = require('../../models/user');
 
 chai.use(chaiHttp);
 var _ = require('lodash' );
 
+
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/user');
+var db = mongoose.connection;
+
+db.on('error', function (err) {
+    console.log('connection error', err);
+});
+db.once('open', function () {
+    console.log('connected to database');
+});
+
 describe('User', function (){
+    beforeEach(function (done) {
+
+        user.remove({}, function (err) {
+
+            if (err)
+                done(err);
+            else {
+                var user1 = new user();
+
+                user1._id = "5a001ba3f26d7403cd80a804";
+                user1.firstname = "Cara";
+                user1.lastnight = "Murphy";
+                user1.username = "cmurphy4";
+                user1.email= "ciaram@hotmail.com";
+
+
+
+
+                user1.save(function (err) {
+                    if (err)
+                        console.log(err);
+                    else {
+                        var user2 = new user();
+
+                        user2._id = "5a017e588b183e051c279f98";
+                        user2.firstname = "Cara";
+                        user2.lastnight = "Murphy";
+                        user2.username = "cmurphy4";
+                        user2.email= "ciaram@hotmail.com";
+
+
+                        user2.save(function (err) {
+                            if (err)
+                                console.log(err);
+                            else {
+                                done();
+                            }
+                        });
+                    }
+                });
+            }
+        });
+    });
+
+
 
 
     describe('GET /user', function () {
@@ -16,7 +74,7 @@ describe('User', function (){
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
-                    expect(res.body.length).to.equal(35);
+                    expect(res.body.length).to.equal(2);
                     done();
                 });
         });
@@ -43,7 +101,7 @@ describe('User', function (){
     describe('GET /user/id', function () {
         it('should return one user from the collection', function(done) {
             chai.request(server)
-                .get('/user/59ff7506428bec05702d67c9')
+                .get('/user/5a017e588b183e051c279f98')
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.a('array');
@@ -57,7 +115,7 @@ describe('User', function (){
         it('should delete the user from the collection', function(done) {
 
             chai.request(server)
-                .delete('/user/5a002a9b95cc1f044f6d1e2d')
+                .delete('/user/5a001ba3f26d7403cd80a804')
                 .send(user)
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
@@ -74,7 +132,7 @@ describe('User', function (){
                 username: 'cmurphy45'
             };
             chai.request(server)
-                .put('/user/5a001ba3f26d7403cd80a804/username')
+                .put('/user/5a017e588b183e051c279f98/username')
                 .send(user)
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
