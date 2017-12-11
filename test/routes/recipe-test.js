@@ -75,7 +75,7 @@ var _ = require('lodash' );
                 });
         });
     });
-    describe('POST /recipe', function () {
+  /*  describe('POST /recipe', function () {
         it('should return confirmation message and update collection', function(done) {
             var recipe = {
                 recipename: 'Steak' ,
@@ -92,7 +92,7 @@ var _ = require('lodash' );
                     done();
                 });
         });
-    });
+    });*/
     describe('GET /recipe/id', function () {
         it('should return a recipe from the collection', function(done) {
             chai.request(server)
@@ -119,7 +119,7 @@ var _ = require('lodash' );
             });
         });
 
-        describe('PUT /recipe/id/rating', function () {
+       /* describe('PUT /recipe/id/rating', function () {
             it('should update the rating in the recipe collection', function(done) {
                 var recipe = {
                     rating: 5
@@ -133,6 +133,6 @@ var _ = require('lodash' );
                         done();
                     });
             });
-        });
+        });*/
 
 });
