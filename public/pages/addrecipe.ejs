@@ -1,0 +1,33 @@
+<div class="jumbotron text-center">
+    <h1>Add Recipe</h1>
+
+    <p>{{ message }}</p>
+
+    <div ng-controller="addrecipeController">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+
+                <form ng-submit="addRecipe(addData)">
+
+                    <div class="col-md-4" ><span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>Name</div>
+                    <div class="col-md-8" ><input class="form-control" type="text" name="recipename" placeholder="Please the recipe name" ng-model="addData.recipename" required = "true"></div>
+                    <br><br><br>
+
+                    <div class="col-md-4" ><span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>Category</div>
+                    <div class="col-md-8" ><input class="form-control"  type="text" name="recipetype"  placeholder="Please enter the recipe category" ng-model="addData.recipetype" required = "true"> </div>
+                    <br><br><br>
+
+                    <div class="col-md-4" ><span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>Ingredients</div>
+                    <div class="col-md-8" ><textarea class="form-control"  type="text" name="ingredients"  placeholder="Please enter the recipe ingredients" ng-model="addData.ingredients" required = "true"></textarea></div>
+                    <br><br><br>
+
+                    <div class="col-md-4" ><span style="height:55px; font-size:20px; margin-left:20px; margin-right:20px; valign="middle";>ratings</div>
+                    <div class="col-md-8" ><input class="form-control"  type="number" name="rating"  placeholder="Please enter a rating" ng-model="addData.rating" required = "true"></div>
+                    <br><br><br>
+                    <div class="col-md-2" ></div><div class="col-md-8" ><button class ="btn btn-primary" type = "submit">Add Recipe </button></div>
+                </form>
+                <br> <br>  <br>
+
+            </div>
+        </div>
+    </div>

@@ -14,6 +14,11 @@ app.config(function($routeProvider) {
             controller  : 'recipesController'
         })
 
+        .when('/addrecipe', {
+            templateUrl : 'pages/addrecipe.ejs',
+            controller  : 'addrecipeController'
+        })
+
 
 });
 
