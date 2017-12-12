@@ -3,6 +3,8 @@ node_js:
 - stable
 services:
 - mongodb
+script:
+ - npm run coverage
 branches:
    only:
    - ndevelopment
