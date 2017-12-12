@@ -75,7 +75,7 @@ var _ = require('lodash' );
                 });
         });
     });
-    describe('POST /recipe', function () {
+    describe('POST /addrecipe', function () {
         it('should return confirmation message and update collection', function(done) {
             var recipe = {
                 recipename: 'Steak' ,
@@ -84,7 +84,7 @@ var _ = require('lodash' );
                 rating: 3
             };
             chai.request(server)
-                .post('/recipe')
+                .post('/addrecipe')
                 .send(recipe)
                 .end(function(err, res) {
                     expect(res).to.have.status(200);
