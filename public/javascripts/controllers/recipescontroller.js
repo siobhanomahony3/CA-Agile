@@ -28,13 +28,12 @@ app.controller('recipesController', ['$scope','$http', function($scope, $http) {
                     console.log('Error: ' + data);
                 });
         }
-
+*/
         $scope.delete = function(id) {
-            if (confirm("Are you sure you want to delete this Donation?")) {
+            if (confirm("Are you sure you want to delete this Recipe?")) {
                 console.log('Deleting id : ' + id);
-                $http.delete('/donations/' + id)
-                    .success(function(data) {
-                        console.log(data);
+                $http.delete('/recipe/' + id).success(function(data) {
+                    console.log(data);
                         findAll();
                     })
                     .error(function(data) {
@@ -42,6 +41,6 @@ app.controller('recipesController', ['$scope','$http', function($scope, $http) {
                     });
             }
         };
-    */
+
 }
 ]);

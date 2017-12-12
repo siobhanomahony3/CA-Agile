@@ -10,7 +10,7 @@ $scope.addRecipe = function(addData){
             console.log(data);
         })
             .error(function(data) {
-                concole.log('Error: ' +data);
+                console.log('Error: ' +data);
 
             });
        };
