@@ -12,7 +12,7 @@
     "postbuild:dev": "npm run server",
     "build:watch": "webpack --watch",
     "test:watch": "npm run test -- --watch",
-    "coverage": "cross-env NODE_ENV=test PORT=4000 istanbul cover _mocha -- test/routes/recipe-test.js",
+    "coverage": "set cross-env NODE_ENV=test PORT=4000 istanbul cover _mocha -- test/routes/recipe-test.js",
     "test": "set mongo localhost:27017cross-env NODE_ENV=test PORT=4000 mocha test/routes/recipe-test.js"
   },
   "dependencies": {
