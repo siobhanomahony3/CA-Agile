@@ -1,9 +1,11 @@
 language: node_js
 node_js:
 - stable
+script:
+ - npm run coverage
 branches:
    only:
-   - newdevelopment
+   - development
 notifications:
     email:
       recipients:
