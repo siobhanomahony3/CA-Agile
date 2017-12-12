@@ -11,7 +11,8 @@
     "prebuild:dev": "npm-run-all test clean-build:dev",
     "postbuild:dev": "npm run server",
     "build:watch": "webpack --watch",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "test": "cross-env NODE_ENV=test PORT=4000 mocha test/routes/*"
 
   },
   "dependencies": {
