@@ -1,3 +1,13 @@
 language: node_js
 node_js:
 - stable
+branches:
+   only:
+   - ndevelopment
+notifications:
+    email:
+      recipients:
+        siobhanomahony1994@hotmail.com
+
+      on_success: never
+      on_failure: always
