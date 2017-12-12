@@ -3,10 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "cross-env NODE_ENV=test PORT=4000 mocha test/routes/*",
+    "test": "NODE_ENV=test mocha ",
     "build": "webpack",
     "start-prod": "cross-env NODE_ENV=prod node bin/www",
-    "build-prod": "webpack --config webpack-prod.config.js"
+    "build-prod": "webpack --config webpack-prod.config.js",
+    "server": "node bin/www",
+    "build:prod": "webpack --config webpack-prod.config.js",
+    "build:dev": "webpack"
   },
   "dependencies": {
     "angular": "^1.3.10",
