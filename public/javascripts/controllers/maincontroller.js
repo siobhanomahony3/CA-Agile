@@ -1,9 +1,7 @@
-var app = angular.module('RecipeWebApp');
-
-
-app.controller('mainController', ['$scope', function($scope) {
+function mainController ($scope, $location, $http) {
     // create a message to display in our view
     $scope.message = 'Recipe Generator';
 
 }
-]);
+
+module.exports = mainController;

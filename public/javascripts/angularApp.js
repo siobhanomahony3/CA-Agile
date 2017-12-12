@@ -1,4 +1,9 @@
+
+
+require('angular');
+require('angular-route');
 var app = angular.module('RecipeWebApp', ['ngRoute']);
+require('./controllers/index');
 
 app.config(function($routeProvider) {
     $routeProvider

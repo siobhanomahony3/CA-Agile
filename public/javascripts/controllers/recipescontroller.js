@@ -1,6 +1,5 @@
-var app = angular.module('RecipeWebApp');
 
-app.controller('recipesController', ['$scope','$http', function($scope, $http) {
+function recipesController ($scope, $location, $http) {
     // create a message to display in our view
     $scope.message = 'Recipes Page!';
 
@@ -62,4 +61,5 @@ app.controller('recipesController', ['$scope','$http', function($scope, $http) {
     }
 
 }
-]);
+
+module.exports = recipesController;

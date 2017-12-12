@@ -1,6 +1,6 @@
-var app = angular.module('RecipeWebApp');
 
-app.controller('addrecipeController',['$scope', '$location', '$http', function($scope, $location, $http){
+
+ function addrecipeController ($scope, $location, $http){
     $scope.message = 'Recipes Page!';
 
 $scope.addRecipe = function(addData){
@@ -17,4 +17,4 @@ $scope.addRecipe = function(addData){
 }
 
 
-]);
+ module.exports = addrecipeController;
