@@ -5,7 +5,7 @@ script:
  - npm run coverage
 branches:
    only:
-   - development
+   - newdevelopment
 notifications:
     email:
       recipients:
