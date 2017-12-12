@@ -5,17 +5,17 @@ app.config(function($routeProvider) {
 
     // route for the home page
         .when('/', {
-            templateUrl : 'pages/home.ejs',
+            templateUrl : 'public/pages/home.ejs',
             controller  : 'mainController'
         })
 
         .when('/recipes', {
-            templateUrl : 'pages/recipes.ejs',
+            templateUrl : 'public/pages/recipes.ejs',
             controller  : 'recipesController'
         })
 
         .when('/addrecipe', {
-            templateUrl : 'pages/addrecipe.ejs',
+            templateUrl : 'public/pages/addrecipe.ejs',
             controller  : 'addrecipeController'
         })
 
