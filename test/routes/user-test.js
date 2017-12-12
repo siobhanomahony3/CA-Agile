@@ -79,24 +79,24 @@ describe('User', function (){
                 });
         });
     });
-    describe('POST /user', function () {
-        it('should return add user to the collection', function(done) {
-            var user = {
-                firstname: 'Ciara' ,
-                lastname: 'Murphy',
-                username: 'cmurphy4',
-                email: 'ciaram@hotmail.com'
-            };
-            chai.request(server)
-                .post('/user')
-                .send(user)
-                .end(function(err, res) {
-                    expect(res).to.have.status(200);
-                    expect(res.body).to.have.property('message').equal('User Added!' ) ;
-                    done();
-                });
-        });
-    });
+    // describe('POST /user', function () {
+    //     it('should return add user to the collection', function(done) {
+    //         var user = {
+    //             firstname: 'Ciara' ,
+    //             lastname: 'Murphy',
+    //             username: 'cmurphy4',
+    //             email: 'ciaram@hotmail.com'
+    //         };
+    //         chai.request(server)
+    //             .post('/user')
+    //             .send(user)
+    //             .end(function(err, res) {
+    //                 expect(res).to.have.status(200);
+    //                 expect(res.body).to.have.property('message').equal('User Added!' ) ;
+    //                 done();
+    //             });
+    //     });
+    // });
 
     describe('GET /user/id', function () {
         it('should return one user from the collection', function(done) {
@@ -126,20 +126,20 @@ describe('User', function (){
     });
 
 
-    describe('PUT /user/id/username', function () {
-        it('should update the user in the collection', function(done) {
-            var user = {
-                username: 'cmurphy45'
-            };
-            chai.request(server)
-                .put('/user/5a017e588b183e051c279f98/username')
-                .send(user)
-                .end(function(err, res) {
-                    expect(res).to.have.status(200);
-                    expect(res.body).to.have.property('message').equal('Username Updated!' ) ;
-                    done();
-                });
-        });
-    });
+    // describe('PUT /user/id/username', function () {
+    //     it('should update the user in the collection', function(done) {
+    //         var user = {
+    //             username: 'cmurphy45'
+    //         };
+    //         chai.request(server)
+    //             .put('/user/5a017e588b183e051c279f98/username')
+    //             .send(user)
+    //             .end(function(err, res) {
+    //                 expect(res).to.have.status(200);
+    //                 expect(res.body).to.have.property('message').equal('Username Updated!' ) ;
+    //                 done();
+    //             });
+    //     });
+    // });
 
 });
