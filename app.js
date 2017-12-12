@@ -33,7 +33,7 @@ app.get('/recipe', recipe.findAll);
 app.get('/recipe/:id', recipe.findOne);
 app.post('/addrecipe', recipe.addRecipe);
 app.delete('/recipe/:id', recipe.deleteRecipe);
-app.put('/recipe/:id/rating', recipe.updateRecipe);
+app.put('/recipe/:id/update', recipe.updateRecipe);
 
 app.get('/user', user.findAllUsers);
 app.get('/user/:id', user.findOneUser);

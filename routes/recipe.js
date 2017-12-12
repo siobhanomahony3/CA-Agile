@@ -84,12 +84,12 @@ router.updateRecipe = function(req, res) {
         if (err)
             res.send(err);
         else {
-            recipes.rating = req.body.rating;
+            recipes.ingredients = req.body.ingredients;
             recipes.save(function (err) {
                 if (err)
                     res.send(err);
                 else
-                    res.json({ message: 'Rating Updated!', data: recipes });
+                    res.json({ message: 'Ingredients Updated!', data: recipes });
             });
         }
     });
