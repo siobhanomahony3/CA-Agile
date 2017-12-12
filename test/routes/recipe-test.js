@@ -119,17 +119,17 @@ var _ = require('lodash' );
             });
         });
 
-        describe('PUT /recipe/id/rating', function () {
-            it('should update the rating in the recipe collection', function(done) {
+        describe('PUT /recipe/id/update', function () {
+            it('should update the ingredients in the recipe collection', function(done) {
                 var recipe = {
                     rating: 5
                 };
                 chai.request(server)
-                    .put('/recipe/59ff9a44a00a3e02ba392942/rating')
+                    .put('/recipe/59ff9a44a00a3e02ba392942/update')
                     .send(recipe)
                     .end(function(err, res) {
                         expect(res).to.have.status(200);
-                        expect(res.body).to.have.property('message').equal('Rating Updated!' ) ;
+                        expect(res.body).to.have.property('message').equal('Ingredients Updated!' ) ;
                         done();
                     });
             });
