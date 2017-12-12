@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "server": "nodemon bin/www",
+    "server": "bin/www",
     "build:prod": "webpack --config webpack-prod.config.js",
     "build:dev": "webpack",
     "start": "npm-run-all test build:dev server",
@@ -12,8 +12,8 @@
     "postbuild:dev": "npm run server",
     "build:watch": "webpack --watch",
     "test:watch": "npm run test -- --watch",
-    "coverage": "set cross-env NODE_ENV=test PORT=4000 istanbul cover _mocha -- test/routes/recipe-test.js",
-    "test": "set mongo localhost:27017cross-env NODE_ENV=test PORT=4000 mocha test/routes/recipe-test.js"
+    "coverage": "cross-env NODE_ENV=test PORT=4000 istanbul cover _mocha -- test/routes/recipe-test.js",
+    "test": "mongo localhost:27017cross-env NODE_ENV=test PORT=4000 mocha test/routes/recipe-test.js"
   },
   "dependencies": {
     "angular": "^1.3.10",
