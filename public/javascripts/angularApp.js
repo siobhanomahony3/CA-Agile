@@ -5,6 +5,10 @@ require('angular-route');
 var app = angular.module('RecipeWebApp', ['ngRoute']);
 require('./controllers/index');
 
+require('../../node_modules/bootstrap/dist/css/bootstrap.css' );
+require('../../node_modules/font-awesome/css/font-awesome.css' );
+require('../stylesheets/style.css');
+
 app.config(function($routeProvider) {
     $routeProvider
 
