@@ -7,17 +7,17 @@ var user = require('../../models/user');
 chai.use(chaiHttp);
 var _ = require('lodash' );
 
-
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/user');
-var db = mongoose.connection;
-
-db.on('error', function (err) {
-    console.log('connection error', err);
-});
-db.once('open', function () {
-    console.log('connected to database');
-});
+//
+// var mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost:27017/user');
+// var db = mongoose.connection;
+//
+// db.on('error', function (err) {
+//     console.log('connection error', err);
+// });
+// db.once('open', function () {
+//     console.log('connected to database');
+// });
 
 describe('User', function (){
     beforeEach(function (done) {
