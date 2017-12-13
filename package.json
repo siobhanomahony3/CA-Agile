@@ -13,6 +13,7 @@
     "build:watch": "webpack --watch",
     "test:watch": "npm run test -- --watch",
     "coverage": "set cross-env NODE_ENV=test PORT=4000 istanbul cover _mocha -- test/routes/recipe-test.js",
+    "report-coverage": "cat ./coverage/lcov.info | coveralls",
     "test": "cross-env NODE_ENV=test PORT=4000 mocha test/routes/recipe-test.js"
   },
   "dependencies": {
@@ -37,6 +38,7 @@
     "chai": "^3.5.0",
     "chai-http": "^2.0.1",
     "clean-webpack-plugin": "^0.1.17",
+    "coveralls": "^2.13.1",
     "cross-env": "^5.1.1",
     "css-loader": "^0.24.0",
     "extract-text-webpack-plugin": "^1.0.1",
