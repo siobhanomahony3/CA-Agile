@@ -5,6 +5,7 @@ services:
 - mongodb
 script:
 - npm run coverage
+- npm run check-coverage
 after_success:
 - npm run report-coverage
 branches:
@@ -14,3 +15,6 @@ notifications:
     email:
       recipients:
         siobhanomahony1994@hotmail.com
+
+      on_success: never
+      on_failure: always
