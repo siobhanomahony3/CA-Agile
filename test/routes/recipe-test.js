@@ -75,24 +75,24 @@ var _ = require('lodash' );
                 });
         });
     });
-    // describe('POST /addrecipe', function () {
-    //     it('should return confirmation message and update collection', function(done) {
-    //         var recipe = {
-    //             recipename: 'Steak' ,
-    //             recipetype: 'American',
-    //             ingredients: 'Beef',
-    //             rating: 3
-    //         };
-    //         chai.request(server)
-    //             .post('/addrecipe')
-    //             .send(recipe)
-    //             .end(function(err, res) {
-    //                 expect(res).to.have.status(200);
-    //                 expect(res.body).to.have.property('message').equal('Recipe Added!' ) ;
-    //                 done();
-    //             });
-    //     });
-    // });
+    describe('POST /addrecipe', function () {
+        it('should return confirmation message and update collection', function(done) {
+            var recipe = {
+                recipename: 'Steak' ,
+                recipetype: 'American',
+                ingredients: 'Beef',
+                rating: 3
+            };
+            chai.request(server)
+                .post('/addrecipe')
+                .send(recipe)
+                .end(function(err, res) {
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.have.property('message').equal('Recipe Added!' ) ;
+                    done();
+                });
+        });
+    });
     describe('GET /recipe/id', function () {
         it('should return a recipe from the collection', function(done) {
             chai.request(server)
@@ -119,20 +119,20 @@ var _ = require('lodash' );
             });
         });
 
-        // describe('PUT /recipe/id/update', function () {
-        //     it('should update the ingredients in the recipe collection', function(done) {
-        //         var recipe = {
-        //             rating: 5
-        //         };
-        //         chai.request(server)
-        //             .put('/recipe/59ff9a44a00a3e02ba392942/update')
-        //             .send(recipe)
-        //             .end(function(err, res) {
-        //                 expect(res).to.have.status(200);
-        //                 expect(res.body).to.have.property('message').equal('Ingredients Updated!' ) ;
-        //                 done();
-        //             });
-        //     });
-        // });
+        describe('PUT /recipe/id/update', function () {
+            it('should update the ingredients in the recipe collection', function(done) {
+                var recipe = {
+                    rating: 5
+                };
+                chai.request(server)
+                    .put('/recipe/59ff9a44a00a3e02ba392942/update')
+                    .send(recipe)
+                    .end(function(err, res) {
+                        expect(res).to.have.status(200);
+                        expect(res.body).to.have.property('message').equal('Ingredients Updated!' ) ;
+                        done();
+                    });
+            });
+        });
 
 });
